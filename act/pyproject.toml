@@ -7,7 +7,6 @@ authors = ["Lucia Cepria"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
-crewai = {extras = ["tools"], version = "^0.22.2"}
 
 [tool.poetry.scripts]
 act = "act.main:run"
