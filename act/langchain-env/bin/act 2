@@ -1,0 +1,6 @@
+#!/Users/lucia/Library/Mobile Documents/com~apple~CloudDocs/3º/Group project/S3/Sprint3/act/langchain-env/bin/python
+import sys
+from act.main import run
+
+if __name__ == '__main__':
+    sys.exit(run())

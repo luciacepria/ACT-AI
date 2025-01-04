@@ -1,23 +1,41 @@
   researcher_task:
     description: >
-      Use a search tool to gather the latest stock information for {company_name}, including key data such as current price, historical performance, market capitalization, and other relevant stock metrics.
+      Responsible for conducting comprehensive investigative research on {company_name}. Will delve deep into gathering information from multiple sources, exploring the company's background, market positioning, and broader industry context. 
+      The primary goal is to collect and synthesize diverse information that provides a holistic and nuanced view of the stock's potential, going beyond surface-level data to uncover meaningful insights.
     expected_output: >
-      Provide a detailed report of the company's stock performance, including metrics like current stock price, daily change percentage, 52-week high/low, market capitalization, price-earnings ratio, dividend yield, and other key performance indicators. Include relevant charts or data tables if available.
+      Will produce a comprehensive report that provides an exhaustive exploration of the stock's landscape. This output will encompass a detailed company profile that traces the organization's historical trajectory and current market positioning, 
+      complemented by a thorough analysis of recent financial news and significant developments. The report will meticulously identify key performance indicators, offering a granular market sentiment analysis that captures the stock's current perception 
+      and potential future trends. A critical component will be the in-depth examination of the competitive landscape, revealing how the company stands in relation to its industry peers. It will systematically uncover and articulate potential risks and investment 
+      opportunities, providing contextual insights into industry dynamics and the company's strategic initiatives. By synthesizing information from diverse sources, the report will offer a nuanced and multi-dimensional perspective that goes beyond traditional financial reporting.
 
   accountant_task:
     description: >
-      Calculate key financial ratios for {company_name}, including liquidity, profitability, and growth metrics, using financial statements and stock data.
+      Specializes in performing rigorous financial analysis through a systematic evaluation of various accounting ratios and financial metrics on {company_name}. Will meticulously calculate, analyze, and interpret financial indicators, 
+      providing a quantitative and data-driven assessment of the stock's financial health. The agent aims to transform raw financial data into meaningful insights that can inform investment decisions.
     expected_output: >
-      Provide a summary of the company's financial health through key ratios, with a brief explanation of each and relevant trends.
+      Will generate a comprehensive financial analysis report that transforms complex numerical data into actionable insights. This output will provide a detailed calculation and interpretation of liquidity ratios, 
+      revealing the company's short-term financial stability and ability to meet immediate obligations. The report will include an in-depth profitability ratio analysis, showcasing the company's efficiency in generating 
+      earnings relative to its resources, and comprehensive growth metric evaluations that track the organization's expansion and potential. A thorough debt ratio assessment will offer insights into 
+      the company's financial leverage and risk profile, while a meticulous cash flow analysis will demonstrate the organization's ability to generate and manage financial resources. By comparing the financial performance against 
+      industry benchmarks, the report will contextualize the company's financial standing, providing a numerical summary of financial health that goes beyond raw numbers to offer meaningful interpretation and strategic implications.
 
   recommender_task:
     description: >
-      Analyze the data provided by both the Researcher and Accountant to offer actionable recommendations, such as potential investments, risk management, or strategic financial moves.
+      Serves as the critical decision-making component of the AI system. Synthesizes the detailed findings from the Researcher and Accountant based on {company_name} and uses them to generate a definitive investment recommendation. By integrating qualitative research and quantitative financial analysis, 
+      provides a nuanced and well-reasoned investment strategy.
     expected_output: >
-        A summary of recommended actions based on the financial health and market position of the company. Each recommendation should include a rationale, referring back to data insights for clarity.
-
+      Will produce a comprehensive investment recommendation report that serves as the culmination of the previous agents' analyses. This output will provide a clear and definitive investment recommendation whether to buy, sell, or hold the stock supported by a robust and transparent rationale. 
+      The report will articulate the confidence level of the recommendation, offering both short-term and long-term investment outlooks that provide a holistic view of the stock's potential. By detailing the key factors driving the investment decision, the agent will offer investors a deep understanding 
+      of the underlying considerations. The report will systematically outline potential risks and propose strategic mitigation strategies, ensuring that investors are fully informed about both the opportunities and challenges. Additionally, the recommendation will include a tailored investment 
+      approach that considers the investor's potential risk tolerance and investment goals, transforming complex financial analysis into a practical and actionable investment strategy.
   blogger_task:
     description: >
-      Translate complex financial findings into accessible and engaging content for the general public or blog readers, highlighting key insights without technical jargon.
+      Responsible for transforming complex financial analysis and technical information on {company_name} into an accessible, engaging narrative. Takes the sophisticated outputs from previous agents and repackages them into a clear,
+      conversational, and easily understandable format. The primary goal is to bridge the gap between technical financial information and practical investment understanding.
     expected_output: >
-      An informative article or summary that covers the company's financial standing in an easy-to-understand way, with examples or analogies for non-expert readers.
+      Will craft a meticulously structured financial report that translates complex analytical findings into an engaging and accessible narrative. This output will feature a compelling executive summary that captures
+      the essence of the investment recommendation, followed by a detailed yet conversational breakdown of research findings and financial analysis. Using plain, approachable language, the agent will explain intricate
+      financial concepts and investment strategies, making the information digestible for both financial experts and novice investors. The report will incorporate potential visual aids or infographics to enhance understanding, 
+      transforming dense numerical data into clear, comprehensible visuals. Strategic insights will be presented in a narrative format that tells a story about the stock's potential, market positioning, and investment opportunity, 
+      ensuring that the technical details are not just understood, but also compelling and interesting. The goal is to create a document that not only informs but also educates and engages the reader, bridging the gap between sophisticated 
+      financial analysis and practical investment decision-making.
