@@ -1,0 +1,88 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .tasks-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .task-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .task-name {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .status {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .status-failed {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        .task-content {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .summary {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tasks-container">
+        <h1>All Tasks Results</h1>
+        <div class="summary">
+            Total Tasks: {{ results|length }}
+            Completed: {{ results|selectattr('status', 'equalto', 'success')|list|length }}
+            Failed: {{ results|selectattr('status', 'equalto', 'failed')|list|length }}
+        </div>
+        {% for task_name, result in results.items() %}
+        <div class="task-card">
+            <div class="task-header">
+                <h2 class="task-name">{{ task_name }}</h2>
+                <span class="status {% if result.status == 'success' %}status-success{% else %}status-failed{% endif %}">
+                    {{ result.status }}
+                </span>
+            </div>
+            <div class="task-content">
+                {{ result.data }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

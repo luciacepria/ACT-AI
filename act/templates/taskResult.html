@@ -1,0 +1,67 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .task-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .task-name {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .status {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .status-failed {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        .task-content {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Result</h1>
+    <div class="task-container">
+        <div class="task-header">
+            <h2 class="task-name">{{ task_name }}</h2>
+            <span class="status {% if status == 'success' %}status-success{% else %}status-failed{% endif %}">
+                {{ status }}
+            </span>
+        </div>
+        <div class="task-content">
+            {{ data }}
+        </div>
+    </div>
+</body>
+</html>

@@ -141,7 +141,7 @@ def execute_task_with_retry(task, inputs, max_retries=3, base_delay=3):
 
     return TaskOutput(task_name=task.name, status="failed", data=None)
 
-@app.route('/task/<task_name>', methods=['POST', 'GET'])
+@app.route('/task/<task_name>', methods=['POST'])
 def run_task(task_name):
     inputs = {'company_name': company}
     try:
@@ -177,6 +177,7 @@ def run_all_tasks():
     print(f"All task results: {task_results}")
     return jsonify({"message": "All tasks executed successfully"}), 200
 
+
 @app.route('/all-tasks', methods=['GET'])
 def get_all_task_results():
     """
@@ -191,6 +192,12 @@ def get_all_task_results():
 
         # Convert each TaskOutput object to a dictionary
         results = {task_name: task_output.to_dict() for task_name, task_output in task_results.items()}
+
+        # Return HTML template if requested
+        if request.headers.get('Accept', '').find('text/html') != -1:
+            return render_template('allTasks.html', results=results)
+
+        # Return JSON if not requesting HTML
         return jsonify({"results": results}), 200
     except Exception as e:
         print(f"Error in GET /all-tasks: {e}")
@@ -209,11 +216,21 @@ def run_task_get(task_name):
             if task_name not in task_results:
                 return jsonify({"error": f"Task '{task_name}' has not been executed yet."}), 404
 
-        # Retrieve and return the result of the task
+        # Retrieve the result of the task
         result = task_results[task_name]
+
+        # Return HTML template if requested
+        if request.headers.get('Accept', '').find('text/html') != -1:
+            return render_template('taskResult.html',
+                                   task_name=result.task_name,
+                                   status=result.status,
+                                   data=result.data)
+
+        # Return JSON if not requesting HTML
         return jsonify(result.to_dict()), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/tasks', methods=['GET'])
 def list_tasks():
